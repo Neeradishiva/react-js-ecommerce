@@ -11,7 +11,7 @@ export default function Details() {
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/products/${id}`)
+    axios.get(`https://ecommerce-backend-ui5e.onrender.com/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error(err));
   }, [id]);
