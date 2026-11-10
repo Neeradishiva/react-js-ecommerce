@@ -1,0 +1,96 @@
+### Register a User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "testuser@gmail.com",
+  "password": "password123"
+}
+
+###
+
+### Get Products
+GET http://localhost:5000/api/products
+### Test User Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@gmail.com",
+  "password": "password123"
+}
+### Get All Products
+GET http://localhost:5000/api/products
+
+###
+
+### Create a Product (If route requires Auth Token)
+POST http://localhost:5000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjVmMTIwNGI5ZWUyNjFkYjMxYzc2ZSIsImlhdCI6MTc4NTA2NTkxNSwiZXhwIjoxNzg3NjU3OTE1fQ.ovzJQ4831TQP9ttQFsnNF52KwP6ZHhZ9ucGgsbvcSbo
+
+{
+  "name": "Sample Laptop",
+  "price": 999.99,
+  "description": "High performance laptop",
+  "category": "Electronics",
+  "countInStock": 10
+}
+
+### Create a headphones (If route requires Auth Token)
+POST http://localhost:5000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjVmMTIwNGI5ZWUyNjFkYjMxYzc2ZSIsImlhdCI6MTc4NTA2NTkxNSwiZXhwIjoxNzg3NjU3OTE1fQ.ovzJQ4831TQP9ttQFsnNF52KwP6ZHhZ9ucGgsbvcSbo
+
+{
+  "name": "headphones",
+  "price": 99.99,
+  "description": "High performance",
+  "category": "Electronics",
+  "countInStock": 10
+}
+### Add Product to Cart
+POST http://localhost:5000/api/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjVmMTIwNGI5ZWUyNjFkYjMxYzc2ZSIsImlhdCI6MTc4NTA2NTkxNSwiZXhwIjoxNzg3NjU3OTE1fQ.ovzJQ4831TQP9ttQFsnNF52KwP6ZHhZ9ucGgsbvcSbo
+
+{
+  "productId": "6a62de1f0419404fd833c626",
+  "qty": 2
+}
+
+###
+
+### Get User Cart
+GET http://localhost:5000/api/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjVmMTIwNGI5ZWUyNjFkYjMxYzc2ZSIsImlhdCI6MTc4NTA2NTkxNSwiZXhwIjoxNzg3NjU3OTE1fQ.ovzJQ4831TQP9ttQFsnNF52KwP6ZHhZ9ucGgsbvcSbo
+
+###
+
+### Create an Order (Checkout)
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjVmMTIwNGI5ZWUyNjFkYjMxYzc2ZSIsImlhdCI6MTc4NTA2NTkxNSwiZXhwIjoxNzg3NjU3OTE1fQ.ovzJQ4831TQP9ttQFsnNF52KwP6ZHhZ9ucGgsbvcSbo
+
+{
+  "orderItems": [
+    {
+      "name": "Wireless Mouse",
+      "qty": 2,
+      "price": 29.99,
+      "product": "6a62de1f0419404fd833c626"
+    }
+  ],
+  "shippingAddress": {
+    "address": "123 Main St",
+    "city": "Hyderabad",
+    "postalCode": "500001",
+    "country": "India"
+  },
+  "paymentMethod": "PayPal",
+  "itemsPrice": 59.98,
+  "taxPrice": 5.00,
+  "shippingPrice": 0.00,
+  "totalPrice": 64.98
+}
