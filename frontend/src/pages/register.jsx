@@ -17,7 +17,7 @@ export default function Register() {
       return;
     }
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+      await axios.post('https://ecommerce-backend-ui5e.onrender.com/api/auth/register', { name, email, password });
       enqueueSnackbar('Registration successful! Please login.', { variant: 'success' });
       navigate('/login');
     } catch (err) {
